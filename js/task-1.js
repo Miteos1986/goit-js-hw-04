@@ -22,13 +22,10 @@
 
 function isEnoughCapacity(products, containerSize) {
   let sum = 0;
-  for (let product of products) {
-    sum += Object.values(product)[0];
-    if (sum <= containerSize) {
-      return true;
-    }
+  for (let product of Object.values(products)) {
+    sum += product;
   }
-  return false;
+  return sum <= containerSize;
 }
 
 console.log(isEnoughCapacity({ apples: 2, grapes: 3, carrots: 1 }, 8)); // true
